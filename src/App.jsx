@@ -1,15 +1,14 @@
-import { useState } from 'react';
-import Tela1 from './tela1';
-import Tela2 from './Tela2';
+import Homepage from './components/Homepage';
+import SessionsPage from './components/SessionsPage/SessionsPage';
+import SeatsPage from './components/SeatsPage/SeatsPage'
+
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import modoOff from "./modoOff";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 
 function App() {
-  const [count, setCount] = useState(0);
   const [filmes, setfilmes] = useState([]);
-  const [filme, setfilme] = useState([]);
   
   useEffect(()=>{  
       const promise = axios.get("https://"); //modo off
@@ -33,8 +32,10 @@ function App() {
   return (
     <BrowserRouter>
             <Routes>
-                <route path="/" element={<Tela1 />}></route>
-                <route path={`/sessoes/:idFilme`} element={<Tela2 filme={filme} setfilme={setfilme}/>}></route>
+                <Route path="/" element={<Homepage />}></Route>
+                <Route path={`/sessoes/:idFilme`} element={<SessionsPage />}></Route>
+                <Route path={`/assentos/:idSessao`} element={<SeatsPage />}></Route>
+                <Route path="/" element={<SuccessPage />}></Route>
             </Routes>
     </BrowserRouter>
   )

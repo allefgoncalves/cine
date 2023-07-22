@@ -1,6 +1,6 @@
 import Horarios from "./Horarios";
 import Rodape1 from "./Rodape1";
-import Tela3 from "./Tela3";
+import Seat from "../SeatsPage/SeatsPage";
 
 export default function Tela2(){
     
@@ -8,7 +8,6 @@ export default function Tela2(){
         <>
         <Horarios />
         <Rodape1 />
-        <Tela3 />
         </>
     );
 }
