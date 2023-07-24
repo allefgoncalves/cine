@@ -48,48 +48,46 @@ export default function SeatsPage(){
    
 
     return(
-        <PageContainer>
-             Selecione o(s) assento(s)
-             <SeatsContainer>
-                {seatslocal.map(seat=>(
-                    <SeatItem
-                        data-test="seat"
-                        key={seat.id}
-                        onClick={()=>selecionar(seat.id)}
-                    >
-                        {seat.name}
-                    </SeatItem>
-                ))}
-            </SeatsContainer>
+        <PageContainer onSubmit="salvarDados">
+            Selecione o(s) assento(s)
+                <SeatsContainer>
+                    {seatslocal.map(seat=>(
+                        <input
+                            data-test="seat"
+                            key={seat.id}
+                        >
+                        <SeatItem onClick={()=>selecionar(seat.id)}>
+                            {seat.name}
+                        </SeatItem>
+                        </input>
+                    ))}
+                </SeatsContainer>
 
-            <CaptionContainer>
-                <CaptionItem>
-                    <CaptionCircle />
-                    Selecionado
-                </CaptionItem>
-                <CaptionItem>
-                    <CaptionCircle />
-                    Disponível
-                </CaptionItem>
-                <CaptionItem>
-                    <CaptionCircle />
-                    Indisponível
-                </CaptionItem>
-            </CaptionContainer>
-            
-            <FormContainer>
-                <form onSubmit="salverdados">
-                    <label>Nome do Comprador:
-                        <input tipy="text" placeholder="Digite seu nome..." />
-                    </label>
-                    <label>
-                    CPF do Comprador:
-                    <input placeholder="Digite seu CPF..." />
-                    </label>
-                    <button type="submit">Reservar Assento(s)</button>
-                </form>
+                <CaptionContainer>
+                    <CaptionItem>
+                        <CaptionCircle />
+                        Selecionado
+                    </CaptionItem>
+                    <CaptionItem>
+                        <CaptionCircle />
+                        Disponível
+                    </CaptionItem>
+                    <CaptionItem>
+                        <CaptionCircle />
+                        Indisponível
+                    </CaptionItem>
+                </CaptionContainer>
                 
-            </FormContainer>
+                <FormContainer>
+                        <label>Nome do Comprador:
+                            <input tipy="text" placeholder="Digite seu nome..." />
+                        </label>
+                        <label>
+                        CPF do Comprador:
+                        <input placeholder="Digite seu CPF..." />
+                        </label>
+                        <button type="submit">Reservar Assento(s)</button>
+                </FormContainer>
             <Rodape filme={filme}/>
         </PageContainer>
     );
@@ -110,7 +108,7 @@ function bordcor(selecionados,ocupados,id){
 
 }*/
 
-const PageContainer = styled.div`
+const PageContainer = styled.form`
     display: flex;
     flex-direction: column;
     align-items: center;
