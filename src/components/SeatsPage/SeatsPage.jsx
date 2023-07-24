@@ -78,7 +78,7 @@ export default function SeatsPage(){
             </CaptionContainer>
             
             <FormContainer>
-                <form>
+                <form onSubmit="salverdados">
                     <label>Nome do Comprador:
                         <input tipy="text" placeholder="Digite seu nome..." />
                     </label>
@@ -88,6 +88,7 @@ export default function SeatsPage(){
                     </label>
                     <button type="submit">Reservar Assento(s)</button>
                 </form>
+                
             </FormContainer>
             <Rodape filme={filme}/>
         </PageContainer>
