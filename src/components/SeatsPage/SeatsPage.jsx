@@ -1,15 +1,28 @@
-import Rodape2 from "./Rodape2";
-import ImputDados from "./ImputDados";
-import Cadeiras from "./Cadeiras";
-
+import {useParams, Navigate, Link} from "react-router-dom";
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import styled from 'styled-components';
 
 export default function Tela3(){
     
+    useEffect(()=>{  
+        const promise = axios.get(`https://mock-api.driven.com.br/api/v8/cineflex/showtimes/${session}/seats`);     
+        
+        promise.then(resposta => {
+            setSessions(resposta.data.days);
+            setFilme(resposta.data);
+            console.log(resposta.data.days);
+        });
+    
+        promise.catch(() => {
+          console.log('deu errado, seats');
+       });
+
+      },[]);
+
     return(
         <>
-        <Cadeiras />
-        <ImputDados />
-        <Rodape2 />
+    
         </>
     );
 }
