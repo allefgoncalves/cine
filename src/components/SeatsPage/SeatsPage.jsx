@@ -78,13 +78,16 @@ export default function SeatsPage(){
             </CaptionContainer>
             
             <FormContainer>
-                Nome do Comprador:
-                <input placeholder="Digite seu nome..." />
-
-                CPF do Comprador:
-                <input placeholder="Digite seu CPF..." />
-
-                <button>Reservar Assento(s)</button>
+                <form>
+                    <label>Nome do Comprador:
+                        <input tipy="text" placeholder="Digite seu nome..." />
+                    </label>
+                    <label>
+                    CPF do Comprador:
+                    <input placeholder="Digite seu CPF..." />
+                    </label>
+                    <button type="submit">Reservar Assento(s)</button>
+                </form>
             </FormContainer>
             <Rodape filme={filme}/>
         </PageContainer>
