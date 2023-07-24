@@ -1,8 +1,7 @@
-import {useParams, Navigate} from "react-router-dom";
+import { Navigate, Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-import { Link } from "react-router-dom";
 
 export default function HomePage(){
   const [filmes, setfilmes] = useState([]);
@@ -28,7 +27,7 @@ export default function HomePage(){
       Selecione o filme
       <ListContainer>
         {filmes.map(filme=>(
-          <MovieContainer key={filme.id}>
+          <MovieContainer key={filme.id} data-test="movie">
             <Link to={`/sessoes/${filme.id}`}>
               <img 
                 src={filme.posterURL} 
